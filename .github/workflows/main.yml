@@ -35,8 +35,9 @@ jobs:
 
     # New step to configure AWS credentials (Recommended for Enhanced Security)
     - name: Configure AWS credentials for deployment
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v3
       with:
+        audience: sts.amazonaws.com
         aws-region: ap-south-1  # Replace with your region
         role-to-assume: arn:aws:iam::452000940646:role/aws-deploy-lambda-dynamodb  # Replace your role
 
