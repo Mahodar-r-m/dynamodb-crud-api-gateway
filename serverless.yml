@@ -1,10 +1,10 @@
-service: dynamodb-crud-api
+service: dynamodb-mango-crud-api
 
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: nodejs20.x
   stage: dev
-  region: us-west-1
+  region: ap-south-1
   environment:
     DYNAMODB_TABLE_NAME: ${self:custom.postsTableName}
 
@@ -98,6 +98,7 @@ resources:
         KeySchema:
           - AttributeName: postId
             KeyType: HASH
-        ProvisionedThroughput:
-          ReadCapacityUnits: 1
-          WriteCapacityUnits: 1
+        BillingMode: PAY_PER_REQUEST
+        # ProvisionedThroughput:
+        #   ReadCapacityUnits: 1
+        #   WriteCapacityUnits: 1
